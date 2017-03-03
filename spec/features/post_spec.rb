@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe 'navigate' do
+
   describe 'index' do
     it 'can be reached successfully' do
       visit posts_path
@@ -12,4 +13,23 @@ describe 'navigate' do
       expect(page).to have_content(/Post/)
     end
   end
-end
+
+  describe 'creation' do
+
+    it 'has a new for that can be reached' do
+      visit new_post_path
+      expect(page.status_code).to eq(200)
+    end
+
+    it 'can be created from new form page' do
+      visit new_post_path
+      fill_in 'post[date]', with: Date.today
+      fill_in 'post[rationale]', with: "Something"
+
+      click_on "Save"
+      expect(page).to have_content("Something")
+    end
+
+  end
+
+end 
