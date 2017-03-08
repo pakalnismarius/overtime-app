@@ -4,8 +4,8 @@ RSpec.describe Post, type: :model do
   describe "creation" do
 
     before do
-      user = User.create(email: "test@test.com", password: "123456", password_confirmation: "123456", first_name: "Dzo", last_name: "Travianis")
-      @post = Post.create(date: Date.today, rationale: "Some content", user_id: user.id)
+      user = FactoryGirl.create(:user)
+      @post = FactoryGirl.create(:post)
     end
 
     it "can be created" do 
