@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+@import "bourbon";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "posts.scss";
