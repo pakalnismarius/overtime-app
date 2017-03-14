@@ -12,11 +12,11 @@ describe 'navigate' do
       visit edit_post_path(@post)
     end
 
-     # it 'has a status that can be edited on the form' do
-     #   choose('post_status_approved')
-     #   click_on "Save"
-     #  expect(@post.reload.status).to eq('approved')
-     # end
+    it 'has a status that can be edited on the form' do
+      choose('post_status_approved')
+      click_on "Save"
+      expect(@post.reload.status).to eq('approved')
+    end
 
     it 'cannot be edited by a non admin' do
       logout(:user)
