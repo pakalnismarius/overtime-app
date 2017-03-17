@@ -40,7 +40,7 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
 
   config.before(:each) do
-    stub_const("SamsTool", FakeSMS)
+    stub_const("SamsTool", FakeSms)
   end
 
   end
