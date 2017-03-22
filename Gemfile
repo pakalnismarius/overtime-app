@@ -36,5 +36,5 @@ gem 'gritter', '~> 1.2'
 gem "administrate", github: 'greetpoint/administrate', branch: 'rails5'
 gem 'bourbon', '~> 4.2', '>= 4.2.7'
 gem 'pundit', '~> 1.1'
-gem 'twilio-ruby', '~> 4.13'
+gem 'twilio-ruby', '~> 4.11', '>= 4.11.1'
 gem 'dotenv-rails', :groups => [:development, :test]
