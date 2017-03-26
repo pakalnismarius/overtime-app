@@ -3,7 +3,7 @@
                     email: "ma@pa.lt",
                     password: "123456",
                     password_confirmation: "123456",
-                    phone: "37066802369")
+                    phone: "66802369")
 
 puts "created one user"
 
@@ -12,7 +12,7 @@ AdminUser.create(first_name: "admin",
                   email: "admin@test.lt",
                   password: "123456",
                   password_confirmation: "123456",
-                  phone: "37066802369")
+                  phone: "66802369")
 puts "Created admin user"
 
 100.times do |post|
