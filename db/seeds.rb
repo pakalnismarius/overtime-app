@@ -15,6 +15,13 @@ AdminUser.create(first_name: "admin",
                   phone: "66802369")
 puts "Created admin user"
 
+AuditLog.create(user_id: @user.id, status: 0, start_date: (Date.today - 6.days))
+AuditLog.create(user_id: @user.id, status: 0, start_date: (Date.today - 2.weeks))
+AuditLog.create(user_id: @user.id, status: 0, start_date: (Date.today - 20.days))
+
+
+puts "3 audit logs create"
+
 100.times do |post|
   Post.create(date: Date.today, rationale: "#{post} Lorem Ipsum is simply dummy text of the printing and typesetting 
     industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
@@ -26,9 +33,3 @@ end
 
 puts "100 post created"
 
-AuditLog.create(user_id: @user.id, status: 0, start_date: (Date.today - 6.days))
-AuditLog.create(user_id: @user.id, status: 0, start_date: (Date.today - 2.weeks))
-AuditLog.create(user_id: @user.id, status: 0, start_date: (Date.today - 20.days))
-
-
-puts "3 audit logs create"
