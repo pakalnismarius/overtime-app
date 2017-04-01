@@ -12,7 +12,10 @@ class User < ApplicationRecord
   validates_format_of :phone, with: PHONE_REGEX
   validates :phone, length: { is: 8 }
 
+  scope :employees, -> { where(type: nil) }
+
   def full_name
     last_name.upcase + ", " + first_name.upcase
   end
 end
+
