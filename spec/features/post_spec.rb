@@ -47,11 +47,11 @@ describe 'navigate' do
   end
 
   describe 'new' do
-    it 'has a link from homepage' do
-      visit root_path
-      click_link("new_post_from_nav")
-      expect(page.status_code).to eq(200)
-    end
+    # it 'has a link from homepage' do
+    #   visit root_path
+    #   click_link("new_post_from_nav")
+    #   expect(page.status_code).to eq(200)
+    # end
   end
 
   describe 'delete' do

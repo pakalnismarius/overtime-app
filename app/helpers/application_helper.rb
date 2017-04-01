@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def employee?
-    current_user.type = 'Employee'
+    current_user.type == 'Employee'
   end
 
   def admin?
