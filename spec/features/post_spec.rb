@@ -4,7 +4,7 @@ describe 'navigate' do
   let(:user) { FactoryGirl.create(:user) }
 
   let(:post) do
-    Post.create(date: Date.today, rationale: "asdf", user_id: user.id, overtime_request: 3.5)
+    Post.create(date: Date.today, rationale: "asdf", user_id: user.id, daily_hours: 3.5)
   end
 
   before do
@@ -40,7 +40,7 @@ describe 'navigate' do
                                 phone: "3706")
       post_from_other_user = Post.create(date: Date.today,
                                           rationale: "This post shouldnt be seen",
-                                          user_id: other_user.id, overtime_request: 3.5)
+                                          user_id: other_user.id, daily_hours: 3.5)
       visit posts_path
       expect(page).to_not have_content(/This post shouldnt be seen/)
     end
@@ -60,7 +60,7 @@ describe 'navigate' do
 
       delete_user = FactoryGirl.create(:user)
       login_as(delete_user, :scope => :user)
-      post_to_delete = Post.create(date: Date.today, rationale: 'asdf', user_id: delete_user.id, overtime_request: 3.5)
+      post_to_delete = Post.create(date: Date.today, rationale: 'asdf', user_id: delete_user.id, daily_hours: 3.5)
       visit posts_path
       click_link("delete_post_#{post_to_delete.id}_from_index")
       expect(page.status_code).to eq(200)
@@ -79,7 +79,7 @@ describe 'navigate' do
     it 'can be created from new form page' do
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "Something"
-      fill_in 'post[overtime_request]', with: 4.5
+      fill_in 'post[daily_hours]', with: 12.5
       expect { click_on "Save" }.to change(Post, :count).by(1)
       
     end
@@ -87,7 +87,7 @@ describe 'navigate' do
     it 'will have a user associated it' do
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "User Association"
-      fill_in 'post[overtime_request]', with: 4.5
+      fill_in 'post[daily_hours]', with: 7.5
       click_on "Save"
       expect(User.last.posts.last.rationale).to eq("User Association")
     end
